@@ -40,7 +40,7 @@ Hey Temporal community, it's Friday! It's been a long week but the end is almost
 
 We are officially code complete for our stabilization effort. This means that all tests which are required for us to be "stable" have been written and are now being run in some shape or form within the pipeline.
 
-![](/cms/screen-shot-2020-09-18-at-2-54-57-pm.png)
+![](/static/cms/screen-shot-2020-09-18-at-2-54-57-pm.png)
 
 Now that we have all the tests required for stabilization, the focus has now become continuously running those tests and identifying issues that pop up. When a new issue is discovered, we add it to a list and triage based on importance. Any issue that we consider even semi-critical is noted as a blocker and must be fixed before we consider that component stable. Through this process we've already successfully stabilized a few parts of the system. Over the next sprint we plan to continue with this approach and identify any remaining issues in non-stable components. I've linked some issues which have been identified and fixed below:
 

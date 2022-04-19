@@ -8,7 +8,7 @@ import CustomWarning from "../components/CustomWarning.js"
 
 <CustomWarning>
 
-Temporal's Multi-cluster Replication feature is considered **experimental** and not subject to normal [versioning and support policy](/docs/server/versions-and-dependencies).
+Temporal's Multi-cluster Replication feature is considered **experimental** and not subject to normal [versioning and support policy](/docs/server/versions-dependencies).
 
 </CustomWarning>
 

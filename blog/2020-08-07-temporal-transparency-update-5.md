@@ -71,11 +71,11 @@ As I mentioned in my last post, quality is super critical for us and we take it 
 
 This is a great top-down/idealogical understanding of our stabilization process but some of you may want something a bit more practical. On that note, here are the epics we have created for V1 stabilization:
 
-![](/cms/stable.png)
+![](/static/cms/stable.png)
 
 Outside of actively tracking the status of these epics and their underlying tasks, the pipeline is a great way to visualize the progress we're making, as each green item represents a successful check/test:
 
-![](/cms/screen-shot-2020-08-07-at-12-42-33-pm.png)
+![](/static/cms/screen-shot-2020-08-07-at-12-42-33-pm.png)
 
 The team is completely heads down and focused on stabilization efforts so we're hoping things move quickly without hiccups. I do want to reiterate that while we do not expect to find any critical bugs, there is a chance that a critical bug could require breaking schema changes (not API or code). Keep in mind it would require a bug of quite high severity to require changes to the underlying schema. That being said, we strongly recommend **not** using the current release in a production environment.
 

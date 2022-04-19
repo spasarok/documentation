@@ -19,6 +19,7 @@ Alias: `w`
 - [`tctl workflow listall`](/docs/tctl/workflow/listall)
 - [`tctl workflow listarchived`](/docs/tctl/workflow/listarchived)
 - [`tctl workflow observe`](/docs/tctl/workflow/observe)
+- [`tctl workflow observeid`](/docs/tctl/workflow/observeid)
 - [`tctl workflow query`](/docs/tctl/workflow/query)
 - [`tctl workflow reset`](/docs/tctl/workflow/reset)
 - [`tctl workflow reset-batch`](/docs/tctl/workflow/reset-batch)

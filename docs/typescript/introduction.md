@@ -179,7 +179,7 @@ You can verify execution in Temporal Web (available at [`localhost:8088`](http:/
 
 For a full code walkthrough of our Hello World example, see our [Hello World documentation](/docs/typescript/hello-world).
 
-If you want an example of what it's like to integrate Temporal into an existing full-stack app, check our [Next.js One-Click Buy Tutorial](/docs/typescript/nextjs-tutorial).
+If you want an example of what it's like to integrate Temporal into an existing full-stack app, check our [Next.js One-Click Buy Tutorial](/docs/typescript/nextjs).
 
 </details>
 

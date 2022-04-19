@@ -19,7 +19,7 @@ sidebar_label: Samples library
 - [**Subscription-style Workflow Definition in Go**](https://github.com/temporalio/subscription-workflow-project-template-go): Demonstrates some of the patterns that could be implemented for a subscription-style business process.
 
 - [**eCommerce application example in Go**](https://github.com/temporalio/temporal-ecommerce): Showcases a per-user shopping cart–style Workflow Definition that includes an API for adding and removing items from the cart as well as a web UI.
-  This application sample works in conjunction with the [eCommerce in Go tutorial](/blog/tags/go-ecommerce-tutorial).
+  This application sample works in conjunction with the [eCommerce in Go tutorial](/blog/2021-05-18-build-an-ecommerce-app-with-temporal-part-1).
 
 - [**Go Samples repo**](https://github.com/temporalio/samples-go#samples-directory)
 

@@ -44,7 +44,7 @@ Double check that your Workers are registering the right Workflow and Activity D
 [ERROR] Module not found: Error: Can't resolve '@temporalio/workflow/lib/worker-interface.js' in '/src'
 ```
 
-Our [Next.js tutorial](/docs/typescript/nextjs-tutorial) is written for people setting up Temporal **within an existing monorepo** which may be of use here.
+Our [Next.js tutorial](/docs/typescript/nextjs) is written for people setting up Temporal **within an existing monorepo** which may be of use here.
 
 When you pass a `workflowsPath`, our Webpack config tries to find `node_modules` relative to it and expects `temporalio` to be installed there.
 You can explicitly specify `nodeModulesPaths` if you need to take over, and `find . -name @temporalio -type d` will help identify what path to use (typically it will require going up the right number of directories: `path.join(__dirname, '../../../node_modules')`
@@ -60,7 +60,7 @@ You can explicitly specify `nodeModulesPaths` if you need to take over, and `fin
 ```
 
 Temporal Workflow Bundles need to [export a set of methods that fit the compiled `worker-interface.ts` from `@temporalio/workflow`](https://github.com/temporalio/sdk-typescript/blob/eaa2d205c9bc5ff4a3b17c0b34f2dcf6b1e0264a/packages/worker/src/workflow/bundler.ts#L81) as an entry point.
-We do offer a [bundleWorkflowCode](/docs/typescript/workers/#prebuilt-workflow-bundles) method to assist you with this, though it uses our Webpack settings.
+We do offer a [bundleWorkflowCode](/docs/typescript/workers#prebuilt-workflow-bundles) method to assist you with this, though it uses our Webpack settings.
 
 ## Webpack errors
 
@@ -265,7 +265,7 @@ Querying a Workflow Execution whose query handler causes an error can result in 
 Some troubleshooting actions you can take:
 
 - Verify the connection from your Worker to the Temporal Server is working and doesn't have unusually high latency
-- If you are running Temporal Server yourself, check your [server metrics](/docs/server/production-deployment/#scaling-and-metrics) to ensure it's not overloaded
+- If you are running Temporal Server yourself, check your [server metrics](/docs/server/production-deploy#scaling-and-metrics) to ensure it's not overloaded
 - If what's timing out is a query, check the logs of your Workers to see if they are having issues handling the query
 
 If none of the preceding actions help you discover why timeouts are occurring, please try to produce a minimal repro and we'll be glad to help.

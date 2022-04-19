@@ -27,9 +27,9 @@ When a `CancellationScope` is cancelled, it propagates cancellation in any child
 
 - Activities
 - Timers (created with the [`sleep`](https://typescript.temporal.io/api/namespaces/workflow#sleep) function)
-- [`Trigger`](https://typescript.temporal.io/api/classes/workflow.trigger)s
+- [`Triggers`](https://typescript.temporal.io/api/classes/workflow.trigger)
 
-### [CancelledFailure](/docs/typescript/handling-failure/#cancelledfailure)
+### [CancelledFailure](/docs/typescript/failures#cancelledfailure)
 
 `Timer`s and `Trigger`s throw `CancelledFailure` when cancelled while Activities and Child Workflows throw `ActivityFailure` and `ChildWorkflowFailure` with cause set to `CancelledFailure`.
 One exception is when an Activity or Child Workflow is scheduled in an already cancelled scope (or workflow) in which case they'll propagate the `CancelledFailure` that was thrown to cancel the scope.

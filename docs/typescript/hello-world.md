@@ -6,7 +6,7 @@ description: In this tutorial, we'll go over the different components that make 
 ---
 
 In this tutorial, we'll go over the different components that make up a Temporal project.
-All of the code on this page is included in our Hello World sample, which we set up in our [Getting Started](/docs/typescript/introduction/#getting-started) (we recommend [following along on GitPod](https://gitpod.io/#https://github.com/temporalio/samples-typescript/)).
+All of the code on this page is included in our Hello World sample, which we set up in our [Getting Started](/docs/typescript/introduction#getting-started) (we recommend [following along on GitPod](https://gitpod.io/#https://github.com/temporalio/samples-typescript/)).
 
 The SDK steers developers to write their Workflows and Activities in TypeScript but vanilla JS is also supported.
 
@@ -79,5 +79,5 @@ You should now be familiar with the Hello World project, which is the main way w
 Two paths from here:
 
 - **Go Full Stack**: Integrate the manually-run Temporal Client scripts you have into an Express.js app, or serverless function.
-  Our [Next.js Tutorial](/docs/typescript/nextjs-tutorial) should help show you how to integrate with the frontend, and give indications on how to deploy.
-- **Learn More**: Explore using Signals, Queries and Timers in our [Subscription Workflow tutorial](/docs/typescript/subscription-tutorial/).
+  Our [Next.js Tutorial](/docs/typescript/nextjs) should help show you how to integrate with the frontend, and give indications on how to deploy.
+- **Learn More**: Explore using Signals, Queries and Timers in our [Subscription Workflow tutorial](/docs/typescript/tutorial-subscription/).

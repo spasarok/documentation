@@ -73,7 +73,7 @@ import CustomWarning from "../components/CustomWarning.js"
 
 <CustomWarning>
 
-This feature is related to Temporal's experimental Multi-cluster Replication feature which is considered **experimental** and not subject to normal [versioning and support policy](/docs/server/versions-and-dependencies).
+This feature is related to Temporal's experimental Multi-cluster Replication feature which is considered **experimental** and not subject to normal [versioning and support policy](/docs/server/versions-dependencies).
 
 </CustomWarning>
 

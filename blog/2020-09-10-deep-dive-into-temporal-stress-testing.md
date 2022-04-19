@@ -21,7 +21,7 @@ From a software development standpoint, Temporal is in the unique position of ac
 
 # The "rabbit" scenario
 
-![Rabbits](/cms/rabbit.png)
+![Rabbits](/static/cms/rabbit.png)
 
 The rabbit scenario aims to generate an exponential burst of load across an entire Temporal cluster. We start with a single Workflow which then spawns Workflow children, each of which spawns more Workflow children, and so on. In addition to load generation, this scenario validates the functionality of various communication mechanisms used between parent Workflows and their Workflow children.
 
@@ -43,7 +43,7 @@ The rabbit scenario aims to generate an exponential burst of load across an enti
 
 The following is an example "rabbit" Workflow tree with a **fan-out** of 2 and a **depth** of 2.
 
-![](/cms/rabbit_diagram.jpg)
+![](/static/cms/rabbit_diagram.jpg)
 
 ## Test details
 
@@ -63,7 +63,7 @@ Our test performs additional verification by scanning through the entire Workflo
 
 _In the image below, the root Workflow will complete once all its children are completed, and so on:_
 
-![](/cms/rabbit_diagram_complete.jpg)
+![](/static/cms/rabbit_diagram_complete.jpg)
 
 ### Test 2: spawn and terminate
 
@@ -82,7 +82,7 @@ Our test performs additional verification by waiting for all Workflows in the Wo
 
 _In the image below, terminating the Root Workflow will cause Temporal to propagate the terminate to all children by default:_
 
-![](/cms/rabbit_diagram_terminate.jpg)
+![](/static/cms/rabbit_diagram_terminate.jpg)
 
 ### Test 3: spawn and cancel
 
@@ -104,7 +104,7 @@ Our test performs additional verification by validating that all Workflows in th
 
 _In the image below, a cancellation has been sent to the Root Workflow. The cancellation is currently in the middle of propagating. Once all of the children have transitioned to the cancelled status, the parent then transitions to cancelled as well._
 
-![](/cms/rabbit_diagram_cancelled.jpg)
+![](/static/cms/rabbit_diagram_cancelled.jpg)
 
 ### Note
 
@@ -118,7 +118,7 @@ When creating a child Workflow, you can define a `ParentClosePolicy` that termin
 
 # The "reactor" scenario
 
-![](/cms/reactor.png)
+![](/static/cms/reactor.png)
 
 The reactor scenario consists of a large number of long-running Workflows that constantly process external Workflow signals and execute complex business logic. For the purpose of this blog post, imagine that each long-running Workflow instance represents a customer on your platform. This Workflow Instance runs complex business logic each time the customer submits a purchase order (each purchase order is represented as a signal).
 
@@ -140,7 +140,7 @@ While the "rabbit" scenario was focused on generating a large burst of load on t
 
 A logical representation of what a long-running Customer Order Workflow instance looks like.
 
-![](/cms/reactor_diagram.jpg)
+![](/static/cms/reactor_diagram.jpg)
 
 Note that there are three activities:
 

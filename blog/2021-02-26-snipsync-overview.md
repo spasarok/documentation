@@ -17,7 +17,7 @@ import { ResponsivePlayer } from '../src/components'
 
 <!--truncate-->
 
-In a previous post, about [the making of our SDK tutorials](/blog/the-making-of-new-user-sdk-tutorials), I talked a bit about a tool called [Snipsync](https://github.com/temporalio/snipsync).
+In a previous post, about [the making of our SDK tutorials](/blog/2020-11-12-the-making-of-new-user-sdk-tutorials), I talked a bit about a tool called [Snipsync](https://github.com/temporalio/snipsync).
 In essence it merges source code snippets directly into our documentation, and we have been steadily converting our code examples to use it.
 
 Thus far, in the context of our current documentation ecosystem it has been quite a wonderful little tool.

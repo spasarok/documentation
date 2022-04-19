@@ -29,13 +29,13 @@ Hope everyone had a productive and enjoyable week! I'm here to share our third u
 
 Based on the awesome effort from the team we were able to finish \~50% of the remaining items for code completion during the last week:
 
-![](/cms/screen-shot-2020-07-24-at-4-02-28-pm.png)
+![](/static/cms/screen-shot-2020-07-24-at-4-02-28-pm.png)
 
-![](/cms/screen-shot-2020-07-24-at-4-02-35-pm.png)
+![](/static/cms/screen-shot-2020-07-24-at-4-02-35-pm.png)
 
 We're in the final stretch and things are looking very positive. All remaining items required for code completion are shown in the image below:
 
-![](/cms/screen-shot-2020-07-24-at-4-02-13-pm.png)
+![](/static/cms/screen-shot-2020-07-24-at-4-02-13-pm.png)
 
 Based on the progress made this week, we are quite confident that we will meet the initial date we defined for code completion (July 31, 2020). The remaining work is relatively well scoped and understood so there shouldn't be any showstoppers that pop up (fingers crossed). As team resources free up internally over the next week all focus will be shifted to stabilization.
 
