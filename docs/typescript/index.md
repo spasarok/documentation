@@ -20,7 +20,7 @@ git clone git@github.com:temporalio/sdk-typescript.git
 
 #### Are there executable code samples?​
 
-You can find a complete list of executable code samples in the samples library, which includes Temporal TypeScript SDK code samples from the [temporalio/samples-typscript](https://github.com/temporalio/samples-typescript) repo. Additionally, each of the TypeScript SDK Tutorials is backed by a fully executable template application.
+You can find a complete list of executable code samples in the samples library, which includes Temporal TypeScript SDK code samples from the [temporalio/samples-typescript](https://github.com/temporalio/samples-typescript) repo. Additionally, each of the TypeScript SDK Tutorials is backed by a fully executable template application.
 
 #### Where is the TypeScript SDK technical reference?​
 

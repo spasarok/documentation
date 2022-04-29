@@ -24,7 +24,7 @@ export const unblockSignal = wf.defineSignal('unblock');
 }
 ```
 
-This code defines a Signal as _unblock_ and declares the variable as _isBlocked_ as true. Then the code tries to execute the condition and print _Unblocked_ to the conosle if it becomes unblocked. Finally, the code catches any errors, and if the error is `CacelledFailure`, then it prints `Cacnelled` to the console.
+This code defines a Signal as _unblock_ and declares the variable as _isBlocked_ as true. Then the code tries to execute the condition and print _Unblocked_ to the conosle if it becomes unblocked. Finally, the code catches any errors, and if the error is `CancelledFailure`, then it prints `Cancelled` to the console.
 
 This helps provide type safety, since you can export the type signature of the signal or query to be called on the clientside.
 

@@ -357,7 +357,7 @@ Content is not available
 
 A Task Qeueu is a dynamic queue in Temporal polled by one or more Workers.
 
-When scheduling a Workflow, a taskQueue must be specified.
+When scheduling a Workflow, a `taskQueue` must be specified.
 
 ```typescript
 import { Connection, WorkflowClient } from '@temporalio/client';
@@ -369,7 +369,7 @@ const result = await client.execute(myWorkflow, {
 });
 ```
 
-When createing a Worker, you must pass the taskQueue option ot the Worker.create() function.
+When createing a Worker, you must pass the `taskQueue` option to the `Worker.create()` function.
 
 ```typescript
 const worker = await Worker.create({
@@ -993,7 +993,45 @@ Content is not available
 </TabItem>
 <TabItem value="typescript">
 
-Content is not available
+First create a Worker with `Worker.create()` (which establishes the initial gRPC connection), then call `worker.run()` on it (to start polling the Task Queue).
+
+Below is an example of starting a Worker that polls the Task Queue named `tutorial`.
+
+<!--SNIPSTART typescript-hello-worker {"enable_source_link": false}-->
+<!--SNIPEND-->
+
+`taskQueue` is the only required option, but you will also use `workflowsPath` and `activities` to register Workflows and Activities with the Worker.
+See below for more Worker options.
+
+### Workflow and Activity registration
+
+Workers bundle Workflow code and `node_modules` using Webpack v5 and execute them inside V8 isolates.
+Activities are directly required and run by Workers in the Node.js environment.
+
+Workers are very flexible - you can host any or all of your Workflows and Activities on a Worker, and you can host multiple Workers in a single machine.
+
+There are three main things the Worker needs:
+
+- `taskQueue`: the Task Queue to poll. This is the only required argument.
+- `activities`: Optional. Imported and supplied directly to the Worker. Not file path name.
+- Workflow bundle:
+  - Either specify a `workflowsPath` to your `workflows.ts` file to pass to Webpack, e.g. `require.resolve('./workflows')`. Workflows will be bundled with their dependencies, which you can finetune with `nodeModulesPaths`.
+  - Or pass a prebuilt bundle to `workflowBundle` instead if you prefer to handle the bundling yourself.
+
+### Additional Worker Options
+
+This is a selected subset of options you are likely to use. Even more advanced options, particularly for performance tuning, are available in [the API reference](https://typescript.temporal.io/api/interfaces/worker.WorkerOptions).
+
+| Options            | Description                                                                                                                                                                        |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `nodeModulesPaths` | Array of paths of Workflow dependencies to pass to Webpack. Defaults to the first encountered `node_modules` directory when scanning the filesystem starting with `workflowsPath`. |
+| `dataConverter`    | placeholder for future DataConverter feature (pending feature)                                                                                                                     |
+| `sinks`            | Allows injection of Workflow Sinks (Advanced feature: see [Logging docs](/docs/typescript/logging))                                                                                |
+| `interceptors`     | A mapping of interceptor type to a list of factories or module paths (Advanced feature: see [Interceptors](/docs/typescript/interceptors))                                         |
+
+**Operation guides:**
+
+- [How to tune Workers](/docs/operation/how-to-tune-workers)
 
 </TabItem>
 </Tabs>
@@ -1137,7 +1175,47 @@ Content is not available
 </TabItem>
 <TabItem value="typescript">
 
-Content is not available
+Workers bundle Workflow code and node_modules using Webpack v5 and execute them inside V8 isolates. Activities are directly required and run by Workers in the Node.js environment.
+
+Workers are very flexible - you can host any or all of your Workflows and Activities on a Worker, and you can host multiple Workers in a single machine.
+
+There are three main things the Worker needs:
+
+`taskQueue`: the Task Queue to poll. This is the only required argument.
+`activities`: Optional. Imported and supplied directly to the Worker. Not file path name.
+Workflow bundle:
+Either specify a `workflowsPath` to your `workflows.ts` file to pass to Webpack, e.g. `require.resolve('./workflows')`. Workflows will be bundled with their dependencies, which you can finetune with `nodeModulesPaths`.
+Or pass a prebuilt bundle to `workflowBundle` instead if you prefer to handle the bundling yourself.
+
+```typescript
+import { Worker } from '@temporalio/worker';
+import * as activities from './activities';
+
+async function run() {
+  // Step 1: Register Workflows and Activities with the Worker and connect to
+  // the Temporal server.
+  const worker = await Worker.create({
+    workflowsPath: require.resolve('./workflows'),
+    activities,
+    taskQueue: 'hello-world',
+  });
+  // Worker connects to localhost by default and uses console.error for logging.
+  // Customize the Worker by passing more options to create():
+  // https://typescript.temporal.io/api/classes/worker.Worker
+  // If you need to configure server connection parameters, see docs:
+  // https://docs.temporal.io/docs/typescript/security#encryption-in-transit-with-mtls
+
+  // Step 2: Start accepting tasks on the `tutorial` queue
+  await worker.run();
+}
+
+run().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+```
+
+`taskQueue` is the only required option, but you will also use `workflowsPath` and `activities` to register Workflows and Activities with the Worker.
 
 </TabItem>
 </Tabs>
@@ -1183,7 +1261,17 @@ Content is not available
 </TabItem>
 <TabItem value="typescript">
 
-Content is not available
+You can set a Workflow Id in the Client of a Workflow.
+
+```typescript
+const handle = await client.start(example, {
+  workflowId: 'yourWorkflowId',
+  taskQueue: 'yourTaskQueue',
+  args: ['your', 'arg', 'uments'],
+});
+```
+
+This will start a new Client with the given Workflow Id, Task Queue name, and an argument.
 
 </TabItem>
 </Tabs>
@@ -1783,7 +1871,32 @@ Content is not available
 </TabItem>
 <TabItem value="typescript">
 
-Content is not available
+When you call `proxyActivities` in a Workflow Function, you can set a range of ActivityOptions.
+
+A Schedule-To-Start limits the maximum time that an Activity Task can sit in a Task Queue. It is used to identify whether a Worker is down or for Task routing.
+
+Either `scheduleToCloseTimeout` or `scheduleToStartTimeout` must be set.
+
+Type: time.Duration
+Default: ∞ (infinity - no limit)
+
+In this example, you can set the `ScheduleToStartTimeout` to 60 seconds.
+
+```typescript
+// Sample of typical options you can set
+const { greet } = proxyActivities<typeof activities>({
+  scheduleToCloseTimeout: '5m',
+  ScheduleToStartTimeout: '60s',
+  retry: {
+    // default retry policy if not specified
+    initialInterval: '1s',
+    backoffCoefficient: 2,
+    maximumAttempts: Infinity,
+    maximumInterval: 100 * initialInterval,
+    nonRetryableErrorTypes: [],
+  },
+});
+```
 
 </TabItem>
 </Tabs>
