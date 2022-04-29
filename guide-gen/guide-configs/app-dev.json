@@ -113,7 +113,7 @@
 								{
 									"lang": "typescript",
 									"title": "TypeScript",
-									"path": "none"
+									"path": "typescript/how-to-define-workflow-parameters-in-typescript"
 								}
 							]
 						},
@@ -327,7 +327,7 @@
 						{
 							"lang": "typescript",
 							"title": "TypeScript",
-							"path": "none"
+							"path": "typescript/how-to-develop-a-worker-program-in-typescript"
 						}
 					]
 				},
@@ -386,7 +386,7 @@
 								{
 									"lang": "typescript",
 									"title": "TypeScript",
-									"path": "none"
+									"path": "typescript/how-to-set-a-workflow-task-queue-in-typescript"
 								}
 							]
 						},
@@ -416,7 +416,7 @@
 								{
 									"lang": "typescript",
 									"title": "TypeScript",
-									"path": "none"
+									"path": "typescript/how-to-set-a-workflow-id-in-typescript"
 								}
 							]
 						}
@@ -724,7 +724,7 @@
 								{
 									"lang": "typescript",
 									"title": "TypeScript",
-									"path": "none"
+									"path": "typescript/how-to-set-a-schedule-to-start-timeout-in-typescript"
 								}
 							]
 						}

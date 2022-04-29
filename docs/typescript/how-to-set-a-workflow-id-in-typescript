@@ -1,0 +1,10 @@
+```typescript
+const handle = await client.start(example, {
+  args: ["Temporal"], // type inference works! args: [name: string]
+  taskQueue: "your-task-queue",
+  // in practice, use a meaningful business id, eg customerId or transactionId
+  workflowId: "your-workflow-id-",
+});
+```
+
+Contect to a Client with `client.start()` and any argyuments. Then specify your `taskQueue` and set your `workflowId` to a meaningful business identifier.
